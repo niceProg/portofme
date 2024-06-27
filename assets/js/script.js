@@ -39,15 +39,27 @@ function smoothScroll(target) {
 document.getElementById("hireMeBtn").addEventListener("click", function () {
      window.location.href = "mailto:wisnu.yudhanta@gmail.com";
 });
+
 document.getElementById("copyEmailBtn").addEventListener("click", function () {
      const email = this.getAttribute("data-email");
      navigator.clipboard
           .writeText(email)
           .then(() => {
-               alert("Email copied to clipboard: " + email);
+               swal({
+                    title: "Email Copied!",
+                    text: "Email has been copied to clipboard: " + email,
+                    icon: "success",
+                    button: "OK",
+               });
           })
           .catch((err) => {
                console.error("Failed to copy email: ", err);
+               swal({
+                    title: "Failed to Copy",
+                    text: "There was an error copying the email.",
+                    icon: "error",
+                    button: "OK",
+               });
           });
 });
 
