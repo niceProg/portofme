@@ -35,6 +35,22 @@ function smoothScroll(target) {
      requestAnimationFrame(animationScroll);
 }
 
+document.getElementById("hireMeBtn").addEventListener("click", function () {
+     window.location.href = "mailto:wisnu.yudhanta@gmail.com";
+});
+
+document.getElementById("copyEmailBtn").addEventListener("click", function () {
+     const email = this.getAttribute("data-email");
+     navigator.clipboard
+          .writeText(email)
+          .then(() => {
+               alert("Email copied to clipboard: " + email);
+          })
+          .catch((err) => {
+               console.error("Failed to copy email: ", err);
+          });
+});
+
 document.querySelectorAll(".left .item").forEach((item, index) => {
      item.addEventListener("click", () => {
           // Remove active class from all items
