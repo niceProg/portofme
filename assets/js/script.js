@@ -35,10 +35,10 @@ function smoothScroll(target) {
      requestAnimationFrame(animationScroll);
 }
 
+// Action Email
 document.getElementById("hireMeBtn").addEventListener("click", function () {
      window.location.href = "mailto:wisnu.yudhanta@gmail.com";
 });
-
 document.getElementById("copyEmailBtn").addEventListener("click", function () {
      const email = this.getAttribute("data-email");
      navigator.clipboard
@@ -51,6 +51,7 @@ document.getElementById("copyEmailBtn").addEventListener("click", function () {
           });
 });
 
+// Action Hide Style
 document.querySelectorAll(".left .item").forEach((item, index) => {
      item.addEventListener("click", () => {
           // Remove active class from all items
@@ -73,20 +74,18 @@ document.querySelectorAll(".left .item").forEach((item, index) => {
      });
 });
 
+// Action Slider
 let slideIndex = 0;
 const slides = document.querySelectorAll(".slide");
 const totalSlides = slides.length;
-
 document.querySelector(".next").addEventListener("click", () => {
      slideIndex = (slideIndex + 1) % totalSlides;
      updateSlidePosition();
 });
-
 document.querySelector(".prev").addEventListener("click", () => {
      slideIndex = (slideIndex - 1 + totalSlides) % totalSlides;
      updateSlidePosition();
 });
-
 function updateSlidePosition() {
      const slider = document.querySelector(".slider");
      slider.style.transform = `translateX(-${slideIndex * 70}%)`;
